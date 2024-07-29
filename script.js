@@ -170,6 +170,7 @@ const products = [
   })
 
 
-clearCartBtn.addEventListener('click', () => {
-    cart.clearCart();
-})
+clearCartBtn.addEventListener('click',cart.clearCart.bind(cart)
+    //cart.clearCart();//Without bind, the clearCart method might not work correctly because the this keyword would refer to the button element instead of the ShoppingCart instance. This would lead to errors or unexpected behavior when attempting to access or modify properties like this.items and this.total.
+    //although the cart.clearCart() statement seems to work fine, i think it is because visual studio do something with 'this';;;;;; or this ::::::This version works because when the arrow function is executed, it directly calls cart.clearCart(). Arrow functions do not have their own this context and will use the this value from the surrounding lexical scope. In this case, since cart is already available in the scope, cart.clearCart() will work correctly and this inside clearCart will refer to the cart instance.
+)
